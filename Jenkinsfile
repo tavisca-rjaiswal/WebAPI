@@ -76,7 +76,7 @@ pipeline {
 
 	    stage('docker run') {
             steps {
-                bat "docker run --rm -p 12345:12345/tcp webapi:latest"
+                bat "docker run --rm -p 12345:12345/tcp %repository_name%:%tag_name%"
             }
         }
     }
