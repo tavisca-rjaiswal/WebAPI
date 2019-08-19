@@ -1,11 +1,16 @@
 pipeline {
     agent any
+    parameters{
+        string(defaultValue:"https://github.com/tavisca-rjaiswal/WebAPI.git", name:"GIT_URL")
+        string(defaultValue:"develop", name:"GIT_BRANCH")
+    }
     stages {
         stage('Checkout'){
             steps{
-                checkout([$class: 'GitSCM', branches: [[name: "*/${GIT_BRANCH}" ]],
-                doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], 
-                userRemoteConfigs: [[url: "${GIT_URL}" ]]])
+                bat "git clone -b %GIT_BRANCH% %GIT_URL%"
+                // checkout([$class: 'GitSCM', branches: [[name: "*/${GIT_BRANCH}" ]],
+                // doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], 
+                // userRemoteConfigs: [[url: "${GIT_URL}" ]]])
             }
         }
         stage('Restore') {
