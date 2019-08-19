@@ -12077,11 +12077,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\rjaiswal\\source\\repos\\ASP\\WebAPIExample\\WebAPIExample\\WebAPIExample.csproj",
+      "projectUniqueName": "C:\\Users\\rjaiswal\\source\\repos\\ASP\\WebAPI\\WebAPIExample\\WebAPIExample.csproj",
       "projectName": "WebAPIExample",
-      "projectPath": "C:\\Users\\rjaiswal\\source\\repos\\ASP\\WebAPIExample\\WebAPIExample\\WebAPIExample.csproj",
+      "projectPath": "C:\\Users\\rjaiswal\\source\\repos\\ASP\\WebAPI\\WebAPIExample\\WebAPIExample.csproj",
       "packagesPath": "C:\\Users\\rjaiswal\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\rjaiswal\\source\\repos\\ASP\\WebAPIExample\\WebAPIExample\\obj\\",
+      "outputPath": "C:\\Users\\rjaiswal\\source\\repos\\ASP\\WebAPI\\WebAPIExample\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

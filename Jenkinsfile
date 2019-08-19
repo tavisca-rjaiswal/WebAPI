@@ -1,6 +1,13 @@
 pipeline {
     agent any
     stages {
+        stage('Checkout'){
+            steps{
+                checkout([$class: 'GitSCM', branches: [[name: "*/${GIT_BRANCH}" ]],
+                doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], 
+                userRemoteConfigs: [[url: "${GIT_URL}" ]]])
+            }
+        }
         stage('Restore') {
             steps {
                 bat "dotnet restore"

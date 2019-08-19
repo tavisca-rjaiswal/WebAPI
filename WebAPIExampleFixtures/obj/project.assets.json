@@ -5599,11 +5599,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\rjaiswal\\source\\repos\\ASP\\WebAPIExample\\WebAPIExampleFixtures\\WebAPIExampleFixtures.csproj",
+      "projectUniqueName": "C:\\Users\\rjaiswal\\source\\repos\\ASP\\WebAPI\\WebAPIExampleFixtures\\WebAPIExampleFixtures.csproj",
       "projectName": "WebAPIExampleFixtures",
-      "projectPath": "C:\\Users\\rjaiswal\\source\\repos\\ASP\\WebAPIExample\\WebAPIExampleFixtures\\WebAPIExampleFixtures.csproj",
+      "projectPath": "C:\\Users\\rjaiswal\\source\\repos\\ASP\\WebAPI\\WebAPIExampleFixtures\\WebAPIExampleFixtures.csproj",
       "packagesPath": "C:\\Users\\rjaiswal\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\rjaiswal\\source\\repos\\ASP\\WebAPIExample\\WebAPIExampleFixtures\\obj\\",
+      "outputPath": "C:\\Users\\rjaiswal\\source\\repos\\ASP\\WebAPI\\WebAPIExampleFixtures\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -5622,8 +5622,8 @@
       "frameworks": {
         "netcoreapp2.2": {
           "projectReferences": {
-            "C:\\Users\\rjaiswal\\source\\repos\\ASP\\WebAPIExample\\WebAPIExample\\WebAPIExample.csproj": {
-              "projectPath": "C:\\Users\\rjaiswal\\source\\repos\\ASP\\WebAPIExample\\WebAPIExample\\WebAPIExample.csproj"
+            "C:\\Users\\rjaiswal\\source\\repos\\ASP\\WebAPI\\WebAPIExample\\WebAPIExample.csproj": {
+              "projectPath": "C:\\Users\\rjaiswal\\source\\repos\\ASP\\WebAPI\\WebAPIExample\\WebAPIExample.csproj"
             }
           }
         }
