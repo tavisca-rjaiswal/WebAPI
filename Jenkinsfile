@@ -3,9 +3,14 @@ pipeline {
     parameters{
         // string(defaultValue:"https://github.com/tavisca-rjaiswal/WebAPI.git", name:"GIT_URL")
         // string(defaultValue:"develop", name:"GIT_BRANCH")
+		string(defaultValue:"WebAPIExample.sln", description: 'Name of Solution File', name: 'slnFile')
         string(defaultValue: "webapi", description: 'name of docker image', name: 'docker_image_name')
+        string(defaultValue: "C:/Users/rjaiswal/Documents/sonar-scanner/SonarScanner.MSBuild.dll", description: 'Sonar Scanner', name: 'Sonar_Scanner')
 		string(defaultValue: "taviscarjaiswal/webapi", description: 'repository_name', name: 'repository_name')
 		string(defaultValue: "api_tag", description: 'tag name', name: 'tag_name')
+        string(defaultValue:"12345", description: 'Local port', name: 'localPort')
+		string(defaultValue:"12345", description: 'Docker port', name: 'dockerPort')
+
     }
     stages {
         stage('Checkout'){
@@ -23,7 +28,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                bat "dotnet build -p:Configuration=release -v:n"
+                bat "dotnet build %slnFile% -p:Configuration=release -v:n"
             }
         }
         stage('Test') {
@@ -47,13 +52,18 @@ pipeline {
             }
         }
 
-        stage('SonarQube stage') {
-        	
+        stage('SonarQube stage') {        	
         	steps{
-        		echo 'Docker run the image pulled from dockerhub'
-				bat 'dotnet C:/Users/rjaiswal/Documents/sonar-scanner/SonarScanner.MSBuild.dll begin /d:sonar.login=admin /d:sonar.password=admin /k:"f3c736460e86d1ce0e8748c22a06b38a800e89fe"'
-				bat 'dotnet build'
-				bat 'dotnet C:/Users/rjaiswal/Documents/sonar-scanner/SonarScanner.MSBuild.dll end /d:sonar.login=admin /d:sonar.password=admin'
+                script{
+                    withSonarQubeEnv ('SonarQubeServer'){
+                        withCredentials([usernamePassword(credentialsId: 'c6c8c7e5-5ea1-4d9c-be0c-fdfbb8a780aa', passwordVariable: 'pass', usernameVariable: 'user')]) {					
+                            echo 'Docker run the image pulled from dockerhub'
+                            bat 'dotnet %Sonar_Scanner% begin /d:sonar.login=%user% /d:sonar.password=%pass% /k:"f3c736460e86d1ce0e8748c22a06b38a800e89fe"'
+                            bat 'dotnet build'
+                            bat 'dotnet %Sonar_Scanner% end /d:sonar.login=%user% /d:sonar.password=%pass%'
+                        }
+                    }
+                }
         	}
         }		
 
@@ -86,7 +96,7 @@ pipeline {
 
 	    stage('docker run') {
             steps {
-                bat "docker run --rm -p 12345:12345/tcp %repository_name%:%tag_name%"
+                bat "docker run --rm -p %localPort%:%dockerPort%/tcp %repository_name%:%tag_name%"
             }
         }
     }
